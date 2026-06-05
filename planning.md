@@ -11,25 +11,25 @@
 
 <!-- What domain did you choose? Why is this knowledge valuable and hard to find through official channels? -->
 
----
+---Domain: Binghamton University Campus Dining. This info may be hard to find because Binghamton University is undergoing a dining transition from one dining vendor to another. So students' may find it difficult to locate all the info regarding the new systems vs the old.
 
 ## Documents
 
 <!-- List your specific sources: URLs, subreddit names, forum threads, or file descriptions.
      Aim for at least 10 sources that together cover different subtopics or perspectives within your domain. -->
 
-| # | Source | Description | URL or location |
-|---|--------|-------------|-----------------|
-| 1 | | | |
-| 2 | | | |
-| 3 | | | |
-| 4 | | | |
-| 5 | | | |
-| 6 | | | |
-| 7 | | | |
-| 8 | | | |
-| 9 | | | |
-| 10 | | | |
+| # | Source | Type | URL or file path |
+|---|--------|------|-----------------|
+| 1 | | | | Meal Plan FAQ | Website | https://dineoncampus.com/binghamton/meal-plan-faq
+| 2 | | | | Nutrition and Allergens | Website | https://dineoncampus.com/binghamton/nutrition--allergens
+| 3 | | | | Meet your Dietitians | Website | https://dineoncampus.com/binghamton/meet-your-dietitians
+| 4 | | | | Campus Meal Plans | Website | https://dineoncampus.com/binghamton/campus-meal-plans-
+| 5 | | | | Binghamton University Dining Transition| Website |  https://www.binghamton.edu/services/auxiliary/dining/dining-updates.html 
+| 6 | | | | Dining Chanes Coming in 2026 | Website |  https://www.binghamton.edu/services/auxiliary/dining/dining-rfp.html
+| 7 | | | | How bad is binghamton university's dining system, really? | Blog | https://weatherpatterns.bearblog.dev/bing-dining/
+| 8 | | | | What is your favorite dining hall? | Thread | https://www.reddit.com/r/BinghamtonUniversity/comments/956bun/what_is_your_favorite_dining_hall/
+| 9 | | | |  Dining Hauls: A Tour of Binghamton’s Delicious Dining Options | Blog  | https://www.binghamton.edu/news/blog/story/4480/dining-hauls-a-tour-of-binghamtons-delicious-dining-options
+| 10 | | | |  Dining Services | Webpage |  https://www.binghamton.edu/services/auxiliary/dining/
 
 ---
 
