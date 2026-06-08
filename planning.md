@@ -85,7 +85,7 @@ Multi-lingual support: Translating answers will lose some context for user that 
 |---|----------|-----------------|
 | 1 | How many dining halls are there? | 6
 | 2 | What to do if I have allergies/diety restrictions? | Binghamton has food tags that go with common diet restrictions
-| 3 | When is the dining hall transition taking place? |  Fall 2027
+| 3 | When is the dining hall transition taking place? |  Summer 2026
 | 4 | How can I pay for food in the dining halls and what food plans are there? | Pay with cash/ meal plan card. There are 8 meal plans.
 | 5 | Wherte to eat on campus this summer?
 
