@@ -40,13 +40,19 @@
      numbers fit the structure of your documents.
      A review-heavy corpus warrants different chunking than a long FAQ. -->
 
-**Chunk size:** 350 tokens. 
+**Chunk size:** 240 tokens.
 
-**Overlap:** -60
+**Overlap:** 40 tokens (~17%).
 
 **Reasoning:**
 
---- I will use 350 tokens as it will give me full context for the info contained in the paragraphs, but will also include bullet points and their headers/context. It may be difficult to process the reddit threads however. I did a good amount of overlap as some of the longer paragraphs are more than 350 tokens and would not want to lose context in that situation. I might use a recursive searc hto break down chunks. Eg: Paragraphs -> sentences -> words
+--- I split recursively: paragraphs -> sentences -> words. Paragraphs that fit stay whole (so a FAQ header + its 2-3 sentence answer, or a bullet list, lands in one chunk); only oversized paragraphs fall back to sentence and then word splitting. The greedy packer recombines short units (bullets, Reddit comments) up to the size budget so they aren't stranded as context-poor fragments.
+
+I originally planned 350 tokens, but lowered it to 240 once I saw the conflict with my embedding model: all-MiniLM-L6-v2 only embeds the first 256 tokens and silently truncates the rest. At 350 tokens, 45 of 51 chunks would have lost their tails at embed time. At 240/40, nearly all chunks fit the model's window (85 chunks total), so retrieval uses the full chunk text. The 40-token overlap (~17%) is insurance against a key sentence landing on a boundary — most important for the dense FAQ pages.
+
+Preprocessing: stripped "(opens in a new window)" artifacts and normalized whitespace on every document; for the Reddit thread I additionally removed UI noise (vote counts, "8y ago" timestamps, avatar lines, the CommonMisspellingBot block, and the promoted Spotify post). Each chunk is prefixed with its source title (e.g. "[Meal Plan FAQ] ...") so short fragments stay retrievable and carry source attribution into generation. Implemented in ingest.py.
+
+**Final chunk count:** 85 chunks across 10 documents.
 
 ## Retrieval Approach
 
@@ -120,7 +126,14 @@ Multi-lingual support: Translating answers will lose some context for user that 
      with my specified chunk size and overlap" is a plan. -->
 
 **Milestone 3 — Ingestion and chunking:**
-
+Total: 86 random chunks across 10 pages
+5 random chunks:
+{"id": "Campus_Meal_Plans-0", "source": "Campus Meal Plans", "source_file": "Campus_Meal_Plans.txt", "chunk_index": 0, "token_count": 198, "text": "[Campus Meal Plans] Campus Meal Plans\nWhen you live on campus, you have the added convenience of dining facilities being steps away from your front door. All students living on campus are required to have a meal plan.\nFor any questions regarding meal plans, please email eatatbing@compass-usa.com\nChoose Your Plan  |  Cost  | Dining Dollars\nPlan A              3665    3665\nPlan B              3520    3520\nPlan C              3375    3375\nPlan D              3250    3250\nPlan E              3160    3160\nPlan F              2935    2935\nCommuter semester   415     415\nConvenience Plan    30      30\nWILL I BE CHARGED AN ADMINISTRATIVE FEE ON MY MEAL PLAN FOR FALL 2026-27?\nBearcat Dining meal plans will not have an administrative fee charged to student accounts for this coming school year."}
+{"id": "Meet_Your_Dietitians-4", "source": "Meet Your Dietitians", "source_file": "Meet_Your_Dietitians.txt", "chunk_index": 4, "token_count": 56, "text": "[Meet Your Dietitians] Available dining options for religious diets, such as Halal and Kosher\nAvailable plant-forward dining options\nSports nutrition\nDigestive disorders\nDisordered eating\nSchedule for Alexa\nSchedule for Julia"}
+{"id": "Binghamton_Food_Blog-4", "source": "Binghamton Food Blog", "source_file": "Binghamton_Food_Blog.txt", "chunk_index": 4, "token_count": 198, "text": "[Binghamton Food Blog] [The following numbers are all rounded for clarity.]\nThe result of such a system is that each individual cost you pay in dining dollars is approximately 3x the money. For example, a $6 pasta bowl from C4 is de facto $18 out of pocket. In other words, you pay $2,000 for the privilege of paying $6 for that pasta. The true cost of food is masked behind a massive fee that many students may not even be fully aware of.\nHere’s where it gets weirder: anything with a brand name in the dining halls is charged at retail price on the dining dollars, so the Chobani yogurt at $2.50 (when it’s about $1.25 each at a grocery store) essentially means you are paying $7.50 for the yogurt. Just to dig in the point: you paid $2000 for the privilege to pay $2.50 for 5oz of yogurt."}
+{"id": "Nutrition_Allergens-4", "source": "Nutrition Allergens", "source_file": "Nutrition_Allergens.txt", "chunk_index": 4, "token_count": 168, "text": "[Nutrition Allergens] Food Allergies and Special Diets\nBearcat Dining is here to support our students by ensuring a safe and delicious dining experience, especially if you have food allergies or medical conditions that require specific dietary restrictions. Our Registered Dietitians are available to meet and discuss dining options, accommodations, resources on campus, and more. Please contact our dietitians to best determine how Bearcat Dining can help meet your dietary and nutritional needs.\nPlease contact our Registered Dietitians: Alexa at alexa.schmidt@compass-usa.com or Julie at julielee@binghamton.edu to set up a meeting or dining hall tour.\nDelicious Without"}
+{"id": "Dining_Transition-11", "source": "Dining Transition", "source_file": "Dining_Transition.txt", "chunk_index": 11, "token_count": 246, "text": "[Dining Transition] Expanded Halal and Kosher Access — Based on direct student feedback, Halal and Kosher options will be easier to discover and access across campus, including a new all-kosher truck, Nosh & Go, and a Kosher Grab n’ Go program that delivers every day convenience.\n\"Delicious Without\" Across Campus — Chartwells’ “Delicious Without” program, free from the top nine allergens and gluten, will expand to all four dining halls (C4, CIW, Hinman, and Appalachian), increasing safe and welcoming options for students with food allergies and sensitivities.\nTwo registered dietitians will be available to support students with special dietary needs and preferences.\nInternational-Inspired Food Hall at C4 — The C4 dining hall will debut a globally inspired food hall featuring Chartwells concepts such as Masala Dabba, an Indian inspired station, and La Mesa, a Latin concept.\nA dedicated kosher station will continue to serve as a cornerstone of inclusive dining on campus."}
+I think generally these chunks make sense as they are self contained ideas that only talk about one specific subnject and are not overly long or short
 **Milestone 4 — Embedding and retrieval:**
 
 **Milestone 5 — Generation and interface:**
