@@ -1,0 +1,77 @@
+weatherpatterns
+Home Blog
+
+How Bad is Binghamton University’s Dining System, Really?
+08 Apr, 2025
+
+[Disclaimer: this is not about the quality of the food. This is about the system for purchasing food.]
+
+Introduction
+Hint: pretty bad.
+
+When I toured Binghamton University as a junior in high school, I was fascinated by the dining system. The tour guide cheerfully explained how it works – you get a certain amount of dining dollars with your meal plan, and each individual nosh deducts bucks from your balance. Initially, this sounded far superior to the meal swipe system I had grown to expect. I could go to the dining hall anytime and get even just a single banana without wasting one of my three daily meal swipes on it. I repeated and believed this justification for what I would soon learn was a demonstrably fucked up system in dire need of being completely revamped. Through their uniquely backwards dining system, Sodexo (Binghamton’s dining services provider) has deliberately made eating unnecessarily complicated in a fashion that benefits nobody and hurts everybody.
+
+How the System "Works"
+Before I go into my arguments, I should explain how dining works at Binghamton. Even if you are a student, don’t skip this section, because I’ll bet that you probably don’t understand the full implications of its inner workings. If you live on-campus, you are required to purchase a meal plan, which has two charges: a $2,103 membership fee, and however many dining dollars you wish. The default plan gets you $1,075 dining dollars for a total cost of $3,178. This is the semesterly cost, so the total cost for the year is $6,356. Each time you eat, a cashier manually rings you up, and by scanning your ID, you deduct the total cost of each piece of food from your balance.
+
+[The following numbers are all rounded for clarity.]
+
+The result of such a system is that each individual cost you pay in dining dollars is approximately 3x the money. For example, a $6 pasta bowl from C4 is de facto $18 out of pocket. In other words, you pay $2,000 for the privilege of paying $6 for that pasta. The true cost of food is masked behind a massive fee that many students may not even be fully aware of.
+
+Here’s where it gets weirder: anything with a brand name in the dining halls is charged at retail price on the dining dollars, so the Chobani yogurt at $2.50 (when it’s about $1.25 each at a grocery store) essentially means you are paying $7.50 for the yogurt. Just to dig in the point: you paid $2000 for the privilege to pay $2.50 for 5oz of yogurt.
+
+Even weirder: if you live in the Apartments or off-campus and you purchase dining hall food with a credit card, the price gets multiplied by 1.8x. So, $1000 dining dollars’ worth of food for a Susquehanna resident costs $1800, while for a Hinman resident that same exact food would cost $3000. This is unjustifiable and seemingly a direct $1200 tax for on-campus living that gets pocketed by Sodexo.
+
+The Results of Such a System
+The result of the dining system being configured this way – where every food is an individual cost – results in a lose-lose situation for Sodexo and Binghamton students.
+
+In Sodexo’s case, they need to hire dozens of cashiers to manually input every little bit of food on every single student’s plate. These are menial jobs that are likely a large expenditure of the dining services. Sodexo also needs to calculate the individual prices for every dish they produce, which could be laborious.
+
+For students, the system forces them to budget their health at an age when they need direct guidance on nutrition more than ever. Healthy foods tend to run more expensive than unhealthy foods. Many students are deciding what they eat every meal for the first time in their lives, and they are presented with Fortnite-esque microtransactions that make every single bite of food feel like a drain on their remaining balance.
+
+It doesn’t help that Sodexo encourages precise budget-keeping with their ubiquitous “you should have X dollars left to be on-track” displays. The fact that those displays and documents are even needed is a sign that the system is dysfunctional.
+
+The aforementioned reminders
+
+Comparison to Other Systems
+The dining dollar system by its nature creates an unhealthy and inefficient dining environment. An important question, though: is this lousy system common, or did Sodexo create it exclusively to torture Binghamton students?
+
+In fact, more functional systems are commonplace at universities across the country. While Sodexo at Binghamton forces students to think about every piece of food they eat, other universities have moved towards models that encourage less thinking about the cost of food and more about eating healthy and, more importantly, eating enough to survive. For the sake of apples-to-apples comparison, I will look at other public universities in the northeast, including UVM and various SUNYs.
+
+First is the University of Vermont (UVM), which has around the same number of students as Binghamton and also runs its dining services through Sodexo. There, the “All Access Plan” is $2,364 per semester, or $4,728 per year. Off the bat, this is around $1,500 cheaper than Binghamton dining plans. That plan gives unlimited meal swipes for buffet-style dining. The justification for the unlimited system is it actually decreases food waste compared to a “three swipes per day” system, as students don’t try to cram as much food as possible into each swipe. At UVM, you get as much food as you want for 25% less money than at Binghamton.
+
+Next, I will consider other SUNYs, as they are the closest in operation and expenses to Binghamton. Albany’s plan costs about the same as Binghamton’s but offers unlimited swipes. Stony Brook also offers unlimited swipes, but at a slightly higher price than Binghamton’s meal plan. Buffalo costs a bit more, at $4000 per semester, and offers 19 meals per week. Buffalo’s system isn’t great, but at least it doesn’t involve budgeting for each individual scoop of food. Oneonta and New Paltz, which both use Sodexo, offer unlimited meal swipe plans at a lower cost than Binghamton.
+
+Need I list more? The truth is that the vast majority of universities operate on a meal swipe buffet system, with a substantial portion of them allowing unlimited swipes, all in a similar price range as Binghamton’s standard meal plan. So, what gives?
+
+Anticipated Counterarguments
+Given that other universities have far more reasonable meal plan systems, including those also run by Sodexo, the only explanation is that the dining services here at Binghamton genuinely believe they are doing a service to students by providing them with the piecemeal dining system. In this section, I will explore and refute the possible reasons why one may believe this.
+
+What if people don’t want to eat that much food? Meal swipes would charge the same amount as others, but for less food.
+Yes, this is one of the downfalls of a meal swipe system. However, someone who eats less food is actually hurt even more at Binghamton due to the flat membership fee. Let’s say someone only wants to eat $600 dining dollars’ worth of food in a semester. They pay the flat $2,103 membership fee and then $652 dining dollars for the $2,755 “Meal Plan F” option. The ratio of the dollars spent out of pocket to dining dollars in the account is even worse than for a normal plan. A student on Meal Plan C (the default option) pays only 15% more for the meal plan than our light eater, but gets 65% more dining dollars. This is extremely unfair to those who eat less food.
+
+But the prices in the Binghamton dining halls are cheap, so the meal plans go really far!
+This is not the case for many students. The default meal plan – the one with $1,075 in dining dollars – permits spending about $10 dining dollars per day, or just over $3 per meal. A quick glance at a typical dinner menu shows how unreasonable this is.
+
+A typical menu at Binghamton
+
+The Cordon Bleu alone fills the entire meal’s budget, let alone if you want sides, and God forbid you want some fruit. The prices at the dining hall are not cheap enough for a grown person eating a reasonable amount of healthy food, and people regularly overrun their dining plans, leading to the de facto cost of a meal plan being even higher than it already is.
+
+[I decided not to waste your time listing various food prices in this section. If you’re curious, talk to any Binghamton student.]
+
+It helps people learn how to keep a budget.
+Pardon my French, but this is a lame excuse. Learning how to eat healthy is a far more important skill in these formative years than learning how to budget every meal. Students don’t learn how to budget their future grocery store trips by having every tongful of green beans subtract from a dollar balance. The dining system takes the worst parts of eating from a grocery store and from eating at a dining hall into an impossibly horrible mix that teaches students nothing.
+
+Note on Petition
+Recently at Binghamton University, a petition has been circulating arguing for changes in the dining system. On the good side, the petition argues in favor of enacting a meal swipe system, which I am obviously in favor of. However, people arguing for the petition say that the meal plans are far too expensive because of the $2000 fee and call for its removal, but the cost of the overall meal plan is about the same, and sometimes less, than similar universities – it’s just the piece-by-piece expenditures that are the problem.
+
+Feel free to read the petition and form your own opinion here.
+
+Concluding Remarks
+If other schools charge about the same for meal swipe plans as Binghamton does for its meal plan, then why does Binghamton seemingly make the deliberate choice to operate a system that
+
+      a. Is less convenient for both Sodexo’s operational side and for students, and
+
+      b. Forces students to budget their health at a time when they absolutely shouldn’t have to?
+
+

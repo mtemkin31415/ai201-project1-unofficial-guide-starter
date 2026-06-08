@@ -20,16 +20,16 @@
 
 | # | Source | Type | URL or file path |
 |---|--------|------|-----------------|
-| 1 | | | | Meal Plan FAQ | Website | https://dineoncampus.com/binghamton/meal-plan-faq
-| 2 | | | | Nutrition and Allergens | Website | https://dineoncampus.com/binghamton/nutrition--allergens
-| 3 | | | | Meet your Dietitians | Website | https://dineoncampus.com/binghamton/meet-your-dietitians
-| 4 | | | | Campus Meal Plans | Website | https://dineoncampus.com/binghamton/campus-meal-plans-
-| 5 | | | | Binghamton University Dining Transition| Website |  https://www.binghamton.edu/services/auxiliary/dining/dining-updates.html 
-| 6 | | | | Dining Chanes Coming in 2026 | Website |  https://www.binghamton.edu/services/auxiliary/dining/dining-rfp.html
-| 7 | | | | How bad is binghamton university's dining system, really? | Blog | https://weatherpatterns.bearblog.dev/bing-dining/
-| 8 | | | | What is your favorite dining hall? | Thread | https://www.reddit.com/r/BinghamtonUniversity/comments/956bun/what_is_your_favorite_dining_hall/
-| 9 | | | |  Dining Hauls: A Tour of Binghamton’s Delicious Dining Options | Blog  | https://www.binghamton.edu/news/blog/story/4480/dining-hauls-a-tour-of-binghamtons-delicious-dining-options
-| 10 | | | |  Dining Services | Webpage |  https://www.binghamton.edu/services/auxiliary/dining/
+| 1 |  | Meal Plan FAQ | Website | https://dineoncampus.com/binghamton/meal-plan-faq
+| 2 |  | Nutrition and Allergens | Website | https://dineoncampus.com/binghamton/nutrition--allergens
+| 3 |  | Meet your Dietitians | Website | https://dineoncampus.com/binghamton/meet-your-dietitians
+| 4 | | Campus Meal Plans | Website | https://dineoncampus.com/binghamton/campus-meal-plans-
+| 5 | | Binghamton University Dining Transition| Website |  https://www.binghamton.edu/services/auxiliary/dining/dining-updates.html 
+| 6 | | Dining Chanes Coming in 2026 | Website |  https://www.binghamton.edu/services/auxiliary/dining/dining-rfp.html
+| 7 | | How bad is binghamton university's dining system, really? | Blog | https://weatherpatterns.bearblog.dev/bing-dining/
+| 8 | | What is your favorite dining hall? | Thread | https://www.reddit.com/r/BinghamtonUniversity/comments/956bun/what_is_your_favorite_dining_hall/
+| 9 | |  Dining Hauls: A Tour of Binghamton’s Delicious Dining Options | Blog  | https://www.binghamton.edu/news/blog/story/4480/dining-hauls-a-tour-of-binghamtons-delicious-dining-options
+| 10 | |  Dining Services | Webpage |  https://www.binghamton.edu/services/auxiliary/dining/
 
 ---
 
@@ -40,13 +40,13 @@
      numbers fit the structure of your documents.
      A review-heavy corpus warrants different chunking than a long FAQ. -->
 
-**Chunk size:**
+**Chunk size:** 350 tokens. 
 
-**Overlap:**
+**Overlap:** -60
 
 **Reasoning:**
 
----
+--- I will use 350 tokens as it will give me full context for the info contained in the paragraphs, but will also include bullet points and their headers/context. It may be difficult to process the reddit threads however. I did a good amount of overlap as some of the longer paragraphs are more than 350 tokens and would not want to lose context in that situation. I might use a recursive searc hto break down chunks. Eg: Paragraphs -> sentences -> words
 
 ## Retrieval Approach
 
@@ -56,13 +56,17 @@
      would you weigh in choosing a different embedding model — context length, multilingual
      support, accuracy on domain-specific text, latency? -->
 
-**Embedding model:**
+**Embedding model:** ali-MiniLM-L6-v2 via Sentence Transformer
 
-**Top-k:**
+**Top-k:** 4 chunks
 
 **Production tradeoff reflection:**
 
----
+--- If I was impolementing this for real users I would consider:
+Phrasing: Some people refer to dining hall differently than what is written on the official websites (Slang). Using a stronger transformer could probably detect relationships between what people say and what they mean
+Latency & Cost: API models add network round trips and per token cost rather than a free local interface. Having a lot of people running queries simultaneously would increase latency greatly. Need to make interface and model scalable.
+Multi-lingual support: Translating answers will lose some context for user that speak/more comfortable with a different language
+
 
 ## Evaluation Plan
 
@@ -73,9 +77,9 @@
 
 | # | Question | Expected answer |
 |---|----------|-----------------|
-| 1 | | |
-| 2 | | |
-| 3 | | |
+| 1 | How many dining halls are there? | 6
+| 2 | What to do if I have allergies/diety restrictions? | Binghamton has food tags that go with common diet restrictions
+| 3 | When is the dining hall transition taking place? |  Fall 2027
 | 4 | | |
 | 5 | | |
 
@@ -87,9 +91,9 @@
      Consider: noisy or inconsistent documents, missing source attribution, off-topic
      retrieval, chunks that split key information across boundaries. -->
 
-1.
+1.  Chunking - There are bonund to be chunking errors no matter how finely I tune the ingestion algorithm. I believe a chunking algorithm based on context would make the most sense when we are ingesting multiple file sources. No one size fits all solution
 
-2.
+2.Some info may be missing from the required resources or contradictory. Think of the reddit rankings I included where dining halls are ranked differently by person
 
 ---
 

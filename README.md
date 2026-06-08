@@ -24,16 +24,16 @@
 
 | # | Source | Type | URL or file path |
 |---|--------|------|-----------------|
-| 1 | | | | Meal Plan FAQ | Website | https://dineoncampus.com/binghamton/meal-plan-faq
-| 2 | | | | Nutrition and Allergens | Website | https://dineoncampus.com/binghamton/nutrition--allergens
-| 3 | | | | Meet your Dietitians | Website | https://dineoncampus.com/binghamton/meet-your-dietitians
-| 4 | | | | Campus Meal Plans | Website | https://dineoncampus.com/binghamton/campus-meal-plans-
-| 5 | | | | Binghamton University Dining Transition| Website |  https://www.binghamton.edu/services/auxiliary/dining/dining-updates.html 
-| 6 | | | | Dining Chanes Coming in 2026 | Website |  https://www.binghamton.edu/services/auxiliary/dining/dining-rfp.html
-| 7 | | | | How bad is binghamton university's dining system, really? | Blog | https://weatherpatterns.bearblog.dev/bing-dining/
-| 8 | | | | What is your favorite dining hall? | Thread | https://www.reddit.com/r/BinghamtonUniversity/comments/956bun/what_is_your_favorite_dining_hall/
-| 9 | | | |  Dining Hauls: A Tour of Binghamton’s Delicious Dining Options | Blog  | https://www.binghamton.edu/news/blog/story/4480/dining-hauls-a-tour-of-binghamtons-delicious-dining-options
-| 10 | | | |  Dining Services | Webpage |  https://www.binghamton.edu/services/auxiliary/dining/
+| 1 |  | Meal Plan FAQ | Website | https://dineoncampus.com/binghamton/meal-plan-faq
+| 2 |  | Nutrition and Allergens | Website | https://dineoncampus.com/binghamton/nutrition--allergens
+| 3 |  | Meet your Dietitians | Website | https://dineoncampus.com/binghamton/meet-your-dietitians
+| 4 | | Campus Meal Plans | Website | https://dineoncampus.com/binghamton/campus-meal-plans-
+| 5 | | Binghamton University Dining Transition| Website |  https://www.binghamton.edu/services/auxiliary/dining/dining-updates.html 
+| 6 | | Dining Chanes Coming in 2026 | Website |  https://www.binghamton.edu/services/auxiliary/dining/dining-rfp.html
+| 7 | | How bad is binghamton university's dining system, really? | Blog | https://weatherpatterns.bearblog.dev/bing-dining/
+| 8 | | What is your favorite dining hall? | Thread | https://www.reddit.com/r/BinghamtonUniversity/comments/956bun/what_is_your_favorite_dining_hall/
+| 9 | |  Dining Hauls: A Tour of Binghamton’s Delicious Dining Options | Blog  | https://www.binghamton.edu/news/blog/story/4480/dining-hauls-a-tour-of-binghamtons-delicious-dining-options
+| 10 | |  Dining Services | Webpage |  https://www.binghamton.edu/services/auxiliary/dining/
 
 ---
 
