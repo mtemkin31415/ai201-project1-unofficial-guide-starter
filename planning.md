@@ -86,8 +86,8 @@ Multi-lingual support: Translating answers will lose some context for user that 
 | 1 | How many dining halls are there? | 6
 | 2 | What to do if I have allergies/diety restrictions? | Binghamton has food tags that go with common diet restrictions
 | 3 | When is the dining hall transition taking place? |  Fall 2027
-| 4 | | |
-| 5 | | |
+| 4 | How can I pay for food in the dining halls and what food plans are there? | Pay with cash/ meal plan card. There are 8 meal plans.
+| 5 | Wherte to eat on campus this summer?
 
 ---
 
@@ -99,7 +99,7 @@ Multi-lingual support: Translating answers will lose some context for user that 
 
 1.  Chunking - There are bonund to be chunking errors no matter how finely I tune the ingestion algorithm. I believe a chunking algorithm based on context would make the most sense when we are ingesting multiple file sources. No one size fits all solution
 
-2.Some info may be missing from the required resources or contradictory. Think of the reddit rankings I included where dining halls are ranked differently by person
+2. Some info may be missing from the required resources or contradictory. Think of the reddit rankings I included where dining halls are ranked differently by person
 
 ---
 
@@ -110,6 +110,42 @@ Multi-lingual support: Translating answers will lose some context for user that 
      Label each stage with the tool or library you're using.
      You can use ASCII art, a Mermaid diagram, or embed a sketch as an image.
      You'll use this diagram as context when prompting AI tools to implement each stage. -->
+
+```
+ documents/*.txt
+       │
+       ▼
+┌──────────────────┐   clean (generic + Reddit noise removal),
+│ 1. Ingestion +   │   recursive split: paragraphs→sentences→words,
+│    Chunking      │   240-tok chunks / 40 overlap, prefix [Source]
+│   ingest.py      │
+└──────────────────┘
+       │  chunks.jsonl  (85 chunks + metadata)
+       ▼
+┌──────────────────┐   all-MiniLM-L6-v2 (sentence-transformers)
+│ 2. Embedding +   │   embed each chunk → vector
+│    Vector Store  │   store in persistent ChromaDB (cosine)
+│ embed.py/rag_db  │
+└──────────────────┘
+       │  ./chroma_db
+       ▼
+┌──────────────────┐   embed user query with SAME model,
+│ 3. Retrieval     │   cosine top-k=4, return text + source + score
+│   retrieve.py    │
+└──────────────────┘
+       │  top-4 chunks
+       ▼
+┌──────────────────┐   Groq (llama-3.3-70b) with a grounding system
+│ 4. Generation    │   prompt; source list built in Python from the
+│   generate.py    │   retrieved chunks (not from the LLM)
+└──────────────────┘
+       │  answer + sources
+       ▼
+┌──────────────────┐
+│ 5. Interface     │   Gradio: question box → answer + source panel
+│    app.py        │
+└──────────────────┘
+```
 
 ---
 
@@ -135,5 +171,46 @@ Total: 86 random chunks across 10 pages
 {"id": "Dining_Transition-11", "source": "Dining Transition", "source_file": "Dining_Transition.txt", "chunk_index": 11, "token_count": 246, "text": "[Dining Transition] Expanded Halal and Kosher Access — Based on direct student feedback, Halal and Kosher options will be easier to discover and access across campus, including a new all-kosher truck, Nosh & Go, and a Kosher Grab n’ Go program that delivers every day convenience.\n\"Delicious Without\" Across Campus — Chartwells’ “Delicious Without” program, free from the top nine allergens and gluten, will expand to all four dining halls (C4, CIW, Hinman, and Appalachian), increasing safe and welcoming options for students with food allergies and sensitivities.\nTwo registered dietitians will be available to support students with special dietary needs and preferences.\nInternational-Inspired Food Hall at C4 — The C4 dining hall will debut a globally inspired food hall featuring Chartwells concepts such as Masala Dabba, an Indian inspired station, and La Mesa, a Latin concept.\nA dedicated kosher station will continue to serve as a cornerstone of inclusive dining on campus."}
 I think generally these chunks make sense as they are self contained ideas that only talk about one specific subnject and are not overly long or short
 **Milestone 4 — Embedding and retrieval:**
+Query: How many dining halls are there?
+======================================================================
+[1] score=0.562  source=Dining Transition (chunk 22)
+[Dining Transition] Planning is underway for updates to residential dining halls (Hinman, Appalachian, CIW, and C4) as well as all locations at the Marketplace.
+New catering menu development is underway, and the catering website will be launched in May.  For events scheduled after May 18, requests can be submitted via email at Crafted1946@compass-usa.com
+
+Query: What to do if I have allergies/dietary restriuctions?
+======================================================================
+[1] score=0.503  source=Nutrition Allergens (chunk 5)
+[Nutrition Allergens] Delicious Without
+Delicious Without supports an inclusive dining experience for those with food allergies and needing to avoid gluten. This dedicated space features food that is simply prepared, seasoned, and served by a trained associate. The station is dedicated to foods prepared without the nine major food allergens (milk, egg, wheat, soy, peanuts, tree nuts, fish, shellfi ...
+
+Query: When is the dining hall transition taking place?
+======================================================================
+[1] score=0.615  source=Dining Transition (chunk 15)
+[Dining Transition] May 1, 2026
+Fall 2026 meal plan rates
+Meal plan rates for the Fall 2026 semester are now available.
+MarketPlace to close for the summer
+To enhance your dining experience and reimagine our concepts and spaces, the MarketPlace in The Union will close for the summer beginning May 18.
+We look forward to welcoming you back when we reopen in the fall. Information about summer dining  ...
+----------------------------------------------------------------------
+[2] score=0.614  source=Dining Transition (chunk 22)
+[Dining Transition] Planning is underway for updates to residential dining halls (Hinman, Appalachian, CIW, and C4) as well as all locations at the Marketplace.
+New catering menu development is underway, and the catering website will be launched in May.  For events scheduled after May 18, requests can be submitted via email at Crafted1946@compass-usa.com
+For dining related questions, please contac ...
+----------------------------------------------------------------------
+[3] score=0.551  source=Dining Changes (chunk 2)
+[Dining Changes] Will my meal plan change right away?
+No. Current meal plan structures will remain the same through the first year of the new contract to allow time for planning and a smooth rollout of any future updates.
+What happens to Dining Dollar balances during the transition from Sodexo to Chartwells Higher Education?
+As the University transitions from Sodexo to Chartwells Higher Education  ...
+----------------------------------------------------------------------
+[4] score=0.55  source=Dining Transition (chunk 2)
+[Dining Transition] As the Bearcat Dining Meal Plan office transitions, announcements and FAQs about purchasing meal plans for the fall can be found, here.
+May 12, 2026
+Summer dining options
+As the University transitions to a new food service provider over the summer and some concepts are temporarily closed for renovations, alternative dining options will be made available temporarily. As previous ...
+
+I think these chunks are relevant to the related queries and a return result of 4 chunks makes sense
+
 
 **Milestone 5 — Generation and interface:**
